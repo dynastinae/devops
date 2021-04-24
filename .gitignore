@@ -37,4 +37,5 @@ terraform.rc
 # Ansible
 *.retry
 inventory/
+inventory
 host_vars/
