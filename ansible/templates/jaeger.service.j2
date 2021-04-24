@@ -4,10 +4,9 @@ Descrption=jaeger-all-in-one
 [Service]
 ExecStart=/usr/local/bin/jaeger/jaeger-all-in-one --config-file=/etc/jaeger/jaeger-config.yaml
 Restart=always
-StandardOutput=syslog
 SyslogIdentifier=jaeger
-User=nobody
-Group=nobody
+User=root
+Group=root
 
 [Install]
 WantedBy=multi-user.target

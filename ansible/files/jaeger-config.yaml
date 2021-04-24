@@ -1,0 +1,3 @@
+admin:
+  http:
+    host-port: :14269

@@ -10,7 +10,7 @@
         state: directory
         owner: root
         group: root
-        mode: 0770
+        mode: 0766
 
     - name: create jaeger config file
       copy:
