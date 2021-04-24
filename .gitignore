@@ -37,4 +37,3 @@ terraform.rc
 # Ansible
 *.retry
 inventory/
-pedantically_commented_playbook.yml

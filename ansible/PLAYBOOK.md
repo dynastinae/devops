@@ -67,3 +67,5 @@ copy:
   group: root
   mode: 0644
 ```
+
+src에 playbook 파일이 있는 위치에서 files 디렉토리는 default로 붙여준다.
