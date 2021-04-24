@@ -7,8 +7,7 @@
     - name: create jaeger config file
       copy:
         src: jaeger-config.yaml
-        path: /etc/jaeger/jaeger-config.yaml
-        state: file
+        dest: /etc/jaeger/jaeger-config.yaml
         owner: root
         group: root
         mode: 0755
