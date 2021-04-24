@@ -4,6 +4,14 @@
   become: true
   tasks:
 
+    - name: create jaeger config file
+      file:
+        path: /etc/jaeger-config.yaml
+        state: file
+        owner: root
+        group: root
+        mode: 0755
+
     - name: install jaeger
       unarchive: 
         src: https://github.com/jaegertracing/jaeger/releases/download/v1.22.0/jaeger-1.22.0-linux-amd64.tar.gz
@@ -14,6 +22,21 @@
         group: root
 
     - name: rename jaeger dir
-      command: mv /root/jaeger-1.22.0-linux-amd64 /root/jaeger
+      command: mv /root/jaeger-1.22.0-linux-amd64 /usr/local/bin/jaeger
+
+    - name: create jaeger service
+      template:
+        src: jaeger.service.j2
+        dest: /etc/systemd/system/jaeger.service
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: start jaeger
+      become: true
+      systemd:
+        daemon_reload: true
+        name: jaeger
+        state: restarted
 
       
