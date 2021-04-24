@@ -5,8 +5,9 @@
   tasks:
 
     - name: create jaeger config file
-      file:
-        path: /etc/jaeger-config.yaml
+      copy:
+        src: jaeger-config.yaml
+        path: /etc/jaeger/jaeger-config.yaml
         state: file
         owner: root
         group: root
