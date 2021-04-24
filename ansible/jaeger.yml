@@ -29,8 +29,13 @@
         owner: root
         group: root
 
-    - name: rename jaeger dir
-      command: mv /root/jaeger-1.22.0-linux-amd64 /usr/local/bin/jaeger
+    - name: move jaeger dir
+      copy:
+        src: /root/jaeger-1.22.0-linux-amd64
+        dest: /usr/local/bin/jaeger
+        mode: 0755
+        owner: root
+        group: root
 
     - name: create jaeger service
       template:
