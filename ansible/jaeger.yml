@@ -4,13 +4,21 @@
   become: true
   tasks:
 
+    - name: ensures /etc/jaeger dir
+      file:
+        path: /etc/jaeger
+        state: directory
+        owner: root
+        group: root
+        mode: 0770
+
     - name: create jaeger config file
       copy:
         src: jaeger-config.yaml
         dest: /etc/jaeger/jaeger-config.yaml
         owner: root
         group: root
-        mode: 0755
+        mode: 0644
 
     - name: install jaeger
       unarchive: 
