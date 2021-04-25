@@ -36,6 +36,7 @@
 
   - name: enable rabbitmq delayed-message-exchange plugin
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_delayed_message_exchange
+    notify: start rabbitmq
 
   - name: add user
     command: "/usr/sbin/rabbitmqctl add_user admin {{ password }}"
@@ -45,4 +46,3 @@
 
   - name: set_permissions
     command: /usr/sbin/rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
-    notify: start rabbitmq
