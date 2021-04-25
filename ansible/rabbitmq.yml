@@ -4,5 +4,3 @@
   become: true
   roles:
     - rabbitmq
-  vars_files:
-    - secret.yml
