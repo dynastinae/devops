@@ -22,7 +22,7 @@
 
   - name: install jaeger
     unarchive: 
-      src: https://github.com/jaegertracing/jaeger/releases/download/v1.22.0/jaeger-1.22.0-linux-amd64.tar.gz
+      src: "https://github.com/jaegertracing/jaeger/releases/download/{{ jaeger_version }}/{{ jaeger_release }}.tar.gz"
       dest: /root
       remote_src: yes
       mode: 0755
@@ -31,7 +31,7 @@
     when: jaeger_installed.stat.exists
 
   - name: move jaeger dir
-    command: mv /root/jaeger-1.22.0-linux-amd64 /user/local/bin/jaeger
+    command: mv /root/{{ jaeger_release }} /user/local/bin/jaeger
     when: jaeger_installed.stat.exists
 
   - name: create jaeger service
