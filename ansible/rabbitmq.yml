@@ -5,4 +5,4 @@
   roles:
     - rabbitmq
   vars_files:
-    - /vars/secret.yml
+    - secret.yml
