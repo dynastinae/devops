@@ -16,11 +16,6 @@
       owner: root
       group: root
       mode: 0644
-
-  - name: check installed plugin
-    stat:
-      path: "/usr/lib//rabbitmq/lib/{{ rabbitmq_server }}/plugins/rabbitmq_delayed_message_exchange-3.8.9-0199d11c"
-    register: delayed_message_exchange_installed
     
   - name: install rabbitmq delayed-message-exchange plugin
     unarchive:
@@ -30,7 +25,6 @@
       owner: root
       group: root
       mode: 0644
-    when: delayed_message_exchange_installed.stat.exists
 
   - name: enable rabbitmq management plugin
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_management
