@@ -1,4 +1,7 @@
 ---
+  - name: include secret vars
+    include_vars: secret.yml
+    
   - name: install erlang
     yum: 
       name: "https://github.com/rabbitmq/erlang-rpm/releases/download/{{ erlang_version }}/{{ erlang_release }}.rpm"
@@ -36,7 +39,6 @@
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 
   - name: add user
-    include_vars: secret.yml
     command: "/usr/sbin/rabbitmqctl add_user admin {{ password }}"
 
   - name: set_user_tags
