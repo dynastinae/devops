@@ -17,7 +17,7 @@
 
   - name: check jaeger installed
     stat:
-      path: /user/local/bin/jaeger
+      path: /usr/local/bin/jaeger
     register: jaeger_installed
 
   - name: install jaeger
@@ -31,7 +31,7 @@
     when: jaeger_installed.stat.exists
 
   - name: move jaeger dir
-    command: mv /root/{{ jaeger_release }} /user/local/bin/jaeger
+    command: mv /root/{{ jaeger_release }} /usr/local/bin/jaeger
     when: jaeger_installed.stat.exists
 
   - name: create jaeger service

@@ -1,0 +1,7 @@
+---
+  - name: start rabbitmq
+    become: true
+    service:
+      name: rabbitmq-server
+      state: restarted
+      enabled: yes

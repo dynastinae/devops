@@ -39,3 +39,4 @@ terraform.rc
 inventory/
 inventory
 host_vars/
+secret.yml
