@@ -3,4 +3,4 @@ erlang_version: v23.3.1
 erlang_release: erlang-23.3.1-1.el7.x86_64
 rabbitmq_version: v3.8.14
 rabbitmq_release: rabbitmq-server-3.8.14-1.el7.noarch
-rabbitmq_server: rabbitmq-server-3.8.14
+rabbitmq_server: rabbitmq_server-3.8.14
