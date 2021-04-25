@@ -36,7 +36,13 @@
 
   - name: enable rabbitmq delayed-message-exchange plugin
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_delayed_message_exchange
-    notify: start rabbitmq
+
+  - name: start rabbitmq
+    become: true
+    service:
+      name: rabbitmq-server
+      state: restarted
+      enabled: yes
 
   - name: add user
     command: "/usr/sbin/rabbitmqctl add_user admin {{ password }}"
