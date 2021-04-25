@@ -36,6 +36,7 @@
     command: /usr/sbin/rabbitmq-plugins enable rabbitmq_delayed_message_exchange
 
   - name: add user
+    include_vars: secret.yml
     command: "/usr/sbin/rabbitmqctl add_user admin {{ password }}"
 
   - name: set_user_tags
