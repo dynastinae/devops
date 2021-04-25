@@ -1,0 +1,10 @@
+---
+  - name: install erlang
+    yum: 
+      name: https://github.com/rabbitmq/erlang-rpm/releases/download/{{ erlang_version }}/{{ erlang_release }}.rpm
+      state: present
+
+  - name: install rabbitmq
+    yum:
+      name: https://github.com/rabbitmq/rabbitmq-server/releases/download/{{ rabbitmq_version }}/{{ rabbitmq_release }}.rpm
+      state: present
